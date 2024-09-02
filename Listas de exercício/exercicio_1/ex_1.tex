@@ -1,0 +1,50 @@
+\textcolor{blue}{\textbf{Exercício \paragraphnum: 19/08 }
+	Considere uma casca esférica não condutora uniformemente carregada. Suponha que a espessura da casca é desprezível. Calcule o campo eletrostático devido a essa distribuição de carga em um ponto da superfície da esfera. Calcule a força por unidade de área em um ponto da superfície esférica.}
+\bigskip\\
+
+
+O fluxo sobre uma superfície fechada pode ser descrito pela lei de Gauss:
+
+\begin{equation}
+	\begin{split}
+		\oiint_S \textbf{E}\cdot d\textbf{s} & = 4\pi Q_{int} = 4\pi \sigma 4 \pi R^2 = 16\pi^2\sigma R^2 \\
+		& = E4\pi r^2 = 16\pi^2\sigma R^2 \implies E = 4\pi\sigma\frac{R^2}{r^2}.
+	\end{split}
+\end{equation}
+
+Sendo $R$ o raio da casca esférica e $r$ o raio da superfície Gaussiana sobre a esfera. Uma vez que o campo elétrico é paralelo à $r$ temos:
+
+\begin{equation}
+	\textbf{E} = 4\pi\sigma\frac{R^2}{r^2}\hat{r}
+	\label{eq1:campo}
+\end{equation}
+
+Como queremos calcular o campo elétrico sujeito a um elemento de área na superfície da esfera temos que considerar o campo médio entre os campos. Nesse caso, como não temos cargas no interior da esfera podemos considerar a contribuição interna do campo elétrico como nula, logo
+
+\begin{equation}
+	\textbf{E}_{med} = \left( \frac{\textbf{E}_{int} + \textbf{E}_{ext}}{2}\right) \implies \textbf{E}_{med} = \frac{\textbf{E}_{ext}}{2}; \qquad \textbf{E}_{ext} = \textbf{E}
+	\label{eq1:campo_medio}
+\end{equation}
+
+Finalmente, para calcularmos a força gerada pelo campo elétrico podemos considera $\textbf{F} = q\textbf{E}$, no caso para considerarmos um elemento de área $dA$ temos
+`
+\begin{equation}
+	\frac{dq}{dA} = \sigma \implies dq = \sigma dA
+\end{equation}
+
+\begin{equation}
+	d \textbf{F} = \textbf{E}_{med} dA = \textbf{E}_{med} \sigma dA 
+	\label{eq1:elemento_forca}
+\end{equation}
+
+substituindo \ref{eq1:campo} e \ref{eq1:campo_medio} em \ref{eq1:elemento_forca} temos
+
+\begin{equation}
+	\frac{d\textbf{F}}{dA} = \frac{1}{2} \sigma 4\pi \frac{R^2}{r^2} \sigma \hat{r} = 2\pi \sigma^2 \frac{R^2}{r^2} \hat{r}
+\end{equation}
+
+para que tomemos os resultados na superfície da esfera consideramos o limite em que $r \rightarrow R$. Portanto:
+
+\begin{equation}
+	\frac{d\textbf{F}}{dA} = 2\pi \sigma^2 \hat{r}
+\end{equation}.

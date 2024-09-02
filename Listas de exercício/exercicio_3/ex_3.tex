@@ -1,0 +1,97 @@
+\textcolor{blue}{\textbf{Exercício \paragraphnum: 28/08 }
+	Refaça detalhadamente os cálculos sobre a conservação de momentum linear em eletromagnetismo do PDF da aula de hoje.}
+\bigskip\\
+
+
+Do que já sabemos da mecânica clássica, a variação do momento de um sistema é descrito pela força externa que atua sobre o mesmo.
+
+\begin{equation}
+	\textbf{F} = \frac{d}{dt} \textbf{P}
+\end{equation}
+
+Queremos nessa etapa, analisar de alguma forma a conservação de momento de um sistema eletromagnético e, para isso, vamos considerar a variação de momentum linear da matéria carregada ($\frac{d}{dt} \textbf{P}_m$) igual a força de Lorentz por unidade de área expressa sobre um volume com distribuição de carga $\rho$
+
+\begin{equation}
+	d \textbf{F} = d^3 r \left( \rho \textbf{E} + \frac{\rho}{c} \textbf{v} \times \textbf{B} \right)
+\end{equation}
+
+e força total $F_V$
+
+\begin{equation}
+	\begin{split}
+		F_V & = \int_V d^3 r \left( \rho \textbf{E} + \frac{\rho}{c} \textbf{v} \times \textbf{B} \right) \\
+		& = \int_V d^3 r \left( \rho \textbf{E} + \frac{1}{c} \textbf{J} \times \textbf{B} \right) = \frac{d}{dt} \textbf{P}_m
+		\label{eq3:variacaodemomento}
+	\end{split}
+\end{equation}
+
+Entretanto, não demonstraremos isso em função das fontes, e sim trabalharemos nessa demonstração majoritariamente através das equações de Maxwell. Para isso, vamos apenas fazer um lembrete de todas elas:
+\\
+
+\begin{tcolorbox}[title=Equações de Maxwell, colframe=blue, colback=blue!5!white, coltitle=white, fonttitle=\bfseries]
+	
+	\textbf{Lei de Gauss}
+	
+	\begin{equation}
+		\mathbf{\nabla} \cdot \textbf{E}  = 4 \pi \rho
+		\label{eq3:leidegauss}
+	\end{equation}
+	
+	\textbf{Inexistência de monopolos magnéticos}
+	\begin{equation}
+		\mathbf{\nabla} \cdot \textbf{B} = 0
+		\label{eq3:monopolos}
+	\end{equation}
+	
+	\textbf{Lei de indução de Faraday}
+	\begin{equation}
+		\mathbf{\nabla} \times \textbf{E} = - \frac{\partial}{\partial t} \textbf{B}
+		\label{eq3:leidefaraday}
+	\end{equation}
+	
+	\textbf{Lei de Ampére-Maxwell}
+	\begin{equation}
+		\mathbf{\nabla} \times \textbf{B} = \frac{4\pi}{c} \textbf{J} +  \frac{1}{c}\frac{\partial}{\partial t}\textbf{E}
+		\label{leideampere}
+	\end{equation}
+	
+\end{tcolorbox}
+
+
+Utilizando a lei de Gauss e a lei de Ampére-Maxwell para descrever as fontes temos
+
+\begin{equation}
+	\begin{split}
+		\rho & = \frac{1}{4\pi}\mathbf{\nabla} \cdot \textbf{E} \\
+		\textbf{J} & = \frac{c}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi}\frac{\partial}{\partial t}\textbf{E}
+	\end{split}
+\end{equation}
+
+podemos então substituir em \ref{eq3:variacaodemomento}.
+
+\begin{equation}
+	\begin{split}
+		\frac{d}{dt} \textbf{P}_m & = \int_V d^3 r \left( \rho \textbf{E} + \frac{1}{c} \textbf{J} \times \textbf{B} \right) \\
+		& = \int_V d^3 r \left( \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c}\frac{\partial}{\partial t}\textbf{E} \times \textbf{B} \right)
+	\end{split}
+	\label{eq3:semfontes}
+\end{equation}
+
+Podemos facilmente trabalhar com a Lei de Faraday (\ref{eq3:leidefaraday}) na igualdade acima, a regra do produto nos dá que
+
+\begin{equation}
+	\begin{split}
+		\frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) = \frac{\partial}{\partial t}\textbf{E} \times \textbf{B} + \textbf{E} \times \frac{\partial}{\partial t}\textbf{B} \implies \\
+		\frac{\partial}{\partial t}\textbf{E} \times \textbf{B} = \frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) - \textbf{E} \times \frac{\partial}{\partial t}\textbf{B}.
+	\end{split}
+\end{equation}
+
+Substituindo em \ref{eq3:semfontes} e em seguida substituindo a derivada temporal do campo magnético pela Lei de Faraday:
+
+\begin{equation}
+	\begin{split}
+		& \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c} \left(\frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) - \textbf{E} \times \frac{\partial}{\partial t}\textbf{B}\right) \right]\\
+		= & \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c} \left(\frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) + c\textbf{E} \times (\mathbf{\nabla} \times \textbf{B})\right)\right] \\
+		= & \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c} \frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) - \frac{1}{4\pi }\textbf{E} \times (\mathbf{\nabla} \times \textbf{B})\right]
+	\end{split}
+\end{equation}

@@ -1,0 +1,301 @@
+\textcolor{blue}{
+	\textbf{Exercício \paragraphnum: 21/08 }
+	\begin{itemize}
+		\item Demonstre o teorema de Helmholtz, isto é, demonstre as Eqs. (6.47), (6.49) e (6.50) da segunda edição do livro de J. D. Jackson ou as Eqs. (6.25), (6.27) e (6.28), da terceira.
+		\item Refaça detalhadamente os cálculos para obter a função de Green para a equação de onda.
+	\end{itemize}
+}
+
+
+Queremos encontrar a solução para a equação de onda resultante das transformações por Gauge de Lorentz no qual queremos encontrar a solução particular que satisfaça
+
+\begin{equation}
+	\nabla ^2 \Psi (\textbf{r},t) -\frac{1}{c^2}\frac{\partial^2}{\partial t^2} \Psi = 
+	f(\textbf{r},t) 
+	\label{eq2:onda}
+\end{equation}
+
+Portanto, queremos encontrar a função de Green que satisfaz a equação \ref{eq2:onda}. Das propriedades da função de Green temos
+
+\begin{equation}
+	\begin{split}
+	&\nabla^2 G(\textbf{r}, t, \textbf{r}', t')  -\frac{1}{c^2}\frac{\partial^2}{\partial t^2}G(\textbf{r}, t, \textbf{r}', t') = 
+	\delta^{(3)}(\textbf{r}-\textbf{r}') \delta (t-t') 
+	\\
+	&\left( \nabla^2 -\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right)  G(\textbf{r}, t, \textbf{r}', t') =
+	\delta^{(3)}(\textbf{r}-\textbf{r}') \delta (t-t')
+	\end{split}
+	\label{eq2:func_green}
+\end{equation}
+
+no qual possibilitamos a construção da solução particular $\Psi_P$
+
+\begin{equation}
+	\Psi (\textbf{r}, t)_P= 
+	\int d^3 r \int_{-\infty}^{+\infty} dt G(\textbf{r}, t, \textbf{r}') f(\textbf{r}', t')
+	\label{eq2:psi}
+\end{equation}
+
+Para facilitar nossas contas vamos passar do espaço temporal para o de frequências por meio de transformada de Fourier sobre $t$
+
+\begin{equation}
+	G(\textbf{r},t, \textbf{r}', t') = 
+	\int_{-\infty}^{+\infty} d\omega e^{i\omega t} g(\textbf{r},\omega, \textbf{r}', t')
+	\label{eq2:fourier}
+\end{equation}
+
+Substituindo \ref{eq2:fourier} em \ref{eq2:func_green} podemos calcular explicitamente as derivadas temporais e passar de operadores de derivada temporal para termos geométricos da forma $k_0 = \frac{\omega}{c}$.
+
+\begin{equation}
+	\begin{split}
+	& \left( \nabla^2-\frac{1}{c^2}\frac{\partial^2}{\partial t^2}\right) 
+	\int_{-\infty}^{+\infty} d\omega e^{i\omega t} g(\textbf{r},\omega, \textbf{r}', t')\\
+	& = \left( \nabla^2 + \frac{\omega^2}{c^2}\right)
+	\int_{-\infty}^{+\infty} d\omega e^{i\omega t} g(\textbf{r},\omega, \textbf{r}', t')\\
+	& = \left( \nabla^2 + k_0^2\right) \int_{-\infty}^{+\infty} d\omega e^{i\omega t} g(\textbf{r},\omega, \textbf{r}', t')
+	\end{split}
+\end{equation}
+
+Olhando para o lado direito da equação \ref{eq2:func_green} quando tomamos a transformada de Fourier temos que levar em consideração que a delta de Dirac passa a ser escrita também na sua forma transformada.
+
+\begin{equation}
+	\delta(t-t') = \frac{1}{2\pi}\int_{-\infty}^{+\infty} d\omega e^{-i\omega (t-t')}
+	\label{eq2:delta}
+\end{equation}
+
+Logo, chegamos que
+
+\begin{equation}
+	\left( \nabla^2 + k_0^2\right) \int_{-\infty}^{+\infty} d\omega e^{i\omega t} g(\textbf{r},\omega, \textbf{r}', t') = \delta(\textbf{r}-\textbf{r}')\frac{1}{2\pi}\int_{-\infty}^{+\infty} d\omega e^{-i\omega (t-t')}.
+\end{equation}
+
+Simplificar essa equação pode nos ajudar a visualizar o problema que vamos trabalhar nesse momento, logo subtraindo o lado direito da equação em ambos os lados e colocando tudo dentro do mesmo integrando com a exponencial de $t$ em evidência
+
+\begin{equation}
+	\int_{-\infty}^{+\infty} d\omega \quad 
+	e^{-i\omega t}
+	\left[ \left( \nabla^2 + k_0^2\right) g(\textbf{r},\omega, \textbf{r}', t') 
+	- \frac{e^{i\omega t'}}{2\pi}
+	\delta^{(3)}(\textbf{r}-\textbf{r}')\right] = 0 
+\end{equation}
+
+Notemos que essa equação será verdadeira no caso dos termos internos se anularem uma vez que a exponencial dependente de $t$ nunca será nula.
+
+\begin{equation}
+	\left( \nabla^2 + k_0^2\right) g(\textbf{r},\omega, \textbf{r}', t') 
+    = \frac{e^{i\omega t'}}{2\pi}\delta^{(3)}(\textbf{r}-\textbf{r}')
+    \label{eq2:simplificada}
+\end{equation}
+
+Nesse ponto, o que queremos é encontrar o valor da função de Green ($G$) a partir de $g$. Nesse caso, temos que levar em consideração a existência de uma singularidade no denominador ao isolarmos $g$ uma vez que a solução do sistema divergiria no eixo dos reais. Para resolver esse problema vamos induzir um polo no semi-espaço dos complexos por meio de uma aproximação $g_\eta$ na qual
+
+\begin{equation*}
+	g_{\eta} = g_{\eta}(\textbf{r}, \omega, \textbf{r}', t')
+\end{equation*}
+
+que resultaria na correção infinitesimal em \ref{eq2:simplificada} correspondente à
+
+\begin{equation}
+	\left( \nabla^2 + (k_0+i\eta)^2\right) g_{\eta}(\textbf{r},\omega, \textbf{r}', t') 
+	= \frac{e^{i\omega t'}}{2\pi}\delta^{(3)}(\textbf{r}-\textbf{r}')
+\end{equation}
+
+Realizando agora a transformada de Fourier da posição para eliminar o operador de derivada temos
+
+\begin{equation}
+	g_{\eta}(\textbf{r}, \omega, \textbf{r}', t') =
+	\int d^3k \quad e^{i\textbf{k}\cdot\textbf{r}}\bar{g}_{\eta}(\textbf{k}, \omega, \textbf{r}', t')
+\end{equation}
+
+que nos dá
+
+\begin{equation}
+	\int d^3k \quad e^{i\textbf{k}\cdot\textbf{r}} \left( k^2 + (k_0+i\eta)^2\right) \bar{g_\eta}(\textbf{k},\omega, \textbf{r}', t') 
+	= \frac{e^{i\omega t'}}{2\pi}\delta^{(3)}(\textbf{r}-\textbf{r}')
+\end{equation}
+
+uma vez que
+
+\begin{equation}
+	\begin{split}
+	 & \nabla^2 g_{\eta}(\textbf{k}, \omega, \textbf{r}', t')
+	= \nabla^2 e^{i\textbf{k}\cdot\textbf{r}}\bar{g}_{\eta}(\textbf{k}, \omega, \textbf{r}', t')\\
+	= &(-\textbf{k}\cdot\textbf{k}) e^{i\textbf{k}\cdot\textbf{r}}\bar{g}_{\eta}(\textbf{k}, \omega, \textbf{r}', t')
+	= -k^2 e^{i\textbf{k}\cdot\textbf{r}}\bar{g}_{\eta}(\textbf{k}, \omega, \textbf{r}', t')
+	\end{split}
+\end{equation}
+
+Finalmente podemos encontrar uma equação $\bar{g}_\eta$ que pode está a uma integral de nos dar o resultado para a função de Green desejada desde o início.
+
+\begin{equation}
+	\left( \nabla^2 + (k_0+i\eta)^2\right) g_{\eta}(\textbf{r},\omega, \textbf{r}', t') 
+	= \frac{e^{i\omega t'}}{2\pi}\delta^{(3)}(\textbf{r}-\textbf{r}')
+\end{equation}
+
+\begin{equation}
+	\int d^3 k \quad \left( -k^2 + (k_0+i\eta)^2\right) \bar{g}_{\eta}(\textbf{r},\omega, \textbf{r}', t') 
+	= \frac{e^{i\omega t'}}{2\pi}\delta^{(3)}(\textbf{r}-\textbf{r}')
+\end{equation}
+
+Substituindo a delta explicitamente, assim como na equação \ref{eq2:delta}
+
+\begin{equation}
+	\int d^3 k \quad \left( -k^2 + (k_0+i\eta)^2\right) e^{i\textbf{k}\cdot\textbf{r}}\bar{g}_{\eta}(\textbf{r},\omega, \textbf{r}', t') 
+	= \frac{e^{i\omega t'}}{2\pi}\frac{1}{(2\pi)^3} \int d^3k \quad e^{i\textbf{k}\cdot(\textbf{r}-\textbf{r}')}
+\end{equation}
+
+Igualando os integrandos, temos
+
+\begin{equation}
+	\left( -k^2 + (k_0+i\eta)^2\right) e^{i\textbf{k}\cdot\textbf{r}} \bar{g}_{\eta}(\textbf{r},\omega, \textbf{r}', t') = \frac{e^{i\omega t'}}{(2\pi)^4}e^{i\textbf{k}}\cdot(\textbf{r}-\textbf{r}')
+\end{equation}
+
+logo,
+
+\begin{equation}
+	 \bar{g}_{\eta}(\textbf{r},\omega, \textbf{r}', t') = \frac{e^{i\omega t'}}{(2\pi)^4}\frac{e^{i\textbf{k}\cdot(\textbf{r}-\textbf{r}')}}{e^{i\textbf{k}\cdot\textbf{r}} \left( -k^2 + (k_0+i\eta)^2\right)} = \frac{e^{i\omega t'-i\textbf{k}\cdot\textbf{r}'}}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}
+\end{equation}
+
+Substituindo $\bar{g}_\eta$ em $g_{\eta}$, em seguida em $g_{\eta}$ em $G$ conseguiremos encontrar o valor para $G_{\eta}$
+
+\begin{equation}
+	\begin{split}
+	g_{\eta}(\textbf{r}, \omega, \textbf{r}', t') = &
+	\int d^3k \quad e^{i\textbf{k}\cdot\textbf{r}}\bar{g}_{\eta}(\textbf{k}, \omega, \textbf{r}', t') \\
+	= & \int d^3k \quad e^{i\textbf{k}\cdot\textbf{r}} \frac{e^{i\omega t'-i\textbf{k}\cdot\textbf{r}'}}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}
+	\end{split}
+\end{equation}
+
+finalmente,
+
+\begin{equation}
+	\begin{split}
+	G_{\eta}(\textbf{r},t, \textbf{r}', t') = & 
+	\int_{-\infty}^{+\infty} d\omega e^{-i\omega t} g(\textbf{r},\omega, \textbf{r}', t') \\
+	= & \int_{-\infty}^{+\infty} d\omega e^{i\omega t} \int d^3k \quad e^{i\textbf{k}\cdot\textbf{r}} \frac{e^{i\omega t'-i\textbf{k}\cdot\textbf{r}'}}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}
+	\end{split}.
+\end{equation}
+
+Para obtermos os resultados desejados para a solução, a partir de agora basta realizar as integrações em $d^3k$ e $d\omega$, uma vez que para facilitar podemos escrever a equação da seguinte forma:
+
+\begin{equation}
+	G_{\eta}(\textbf{r},t, \textbf{r}', t') = G_{\eta}(\textbf{r}-\textbf{r}',t-t') = \int_{-\infty}^{+\infty} d\omega \int d^3k \quad  \frac{e^{i\textbf{k}\cdot(\textbf{r}-\textbf{r}')-i\omega (t-t')}}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}
+\end{equation}
+
+ou então,
+
+\begin{equation}
+	G_{\eta}(\textbf{r},t) = G_{\eta}(\textbf{r}-\textbf{r}',t-t') \int_{-\infty}^{+\infty} d\omega \int d^3k \quad  \frac{e^{i\textbf{k}\cdot\textbf{r}-i\omega t}}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}
+\end{equation}
+
+uma vez que $G_{\eta}(\textbf{r}-\textbf{r}',t-t') \quad \exists \quad \forall \quad \textbf{r}-\textbf{r}' \text{ e } t-t'.$ 
+
+Aplicando a transformação de coordenadas polares para coordenadas esféricas temos
+
+\begin{equation}
+	\begin{split}
+	& \int_V d^3k \quad  \frac{e^{i\textbf{k}\cdot\textbf{r}-i\omega t}}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}\\
+	 = &  \int_0^{2\pi}d\phi \int_{1}^{-1} e^{i\textbf{k}\cdot\textbf{r}} d\cos\theta \int_{0}^{R} \frac{k^2}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}dk \\
+	 = &  (2\pi) \int_{1}^{-1} e^{ikr\cos\theta} d\cos\theta \int_{0}^{R} \frac{k^2}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}dk\\
+	 = & \int_{0}^{R} \frac{2\pi \left(-e^{ikr}+e^{-ikr}\right)}{ikr} \frac{k^2}{(2\pi)^4\left( -k^2 + (k_0+i\eta)^2\right)}dk\\
+	 = & \int_{-R}^{R} \frac{ke^{ikr}}{(2\pi)^3 ir\left( -k^2 + (k_0+i\eta)^2\right)}dk
+	\end{split}
+\end{equation}
+
+No contexto de integrais complexas podemos desconsiderar o caminho que passa fora do eixo dos reais quando fechamos a superfície ao redor dos polos. Isso pode ser facilmente demonstrado quando olhamos para
+
+\begin{equation*}
+	\begin{split}
+	&z = Re^{i\theta} = Rcos\theta + iRsin\theta \\
+	&e^{irz} = e^{ir(Rcos\theta + iRsin\theta)} = e^{irRcos\theta - rRsin\theta}\\
+	&e^{irz} = e^{irRcos\theta}e^{-rRsin\theta}
+	\end{split}
+\end{equation*}
+
+Quando tomamos o limite de R tendendo a $\infty$ temos uma contribuição nula da parte complexa, e fazendo apenas a integral na reta real com $\eta$ no limite de 0 por dentro da curva. Para finalizar, basta fazermos a integração utilizando o teorema dos resíduos. Vale lembrar que,
+
+\begin{equation}
+	\oint dz \quad \frac{ze^{izr}}{z^2-(k_0+i\eta)^2} = 2\pi i \text{Res}(z_\pm)
+\end{equation}
+
+com
+
+\begin{equation}
+	z^2-(k_0+i\eta)^2 = (z-z_+)(z-z_-) \impliedby \begin{cases} 
+		z_+ =& k_0 + i\eta \\
+		z_- =& -k_0 - i\eta 
+	\end{cases}
+\end{equation}
+
+Calculando os resíduos em $z_+$ temos,
+
+\begin{equation}
+	\text{Res}(z_+) = \lim_{\eta\rightarrow 0^+} \frac{k_+ e^{iz_+r}}{z_+-z_-} = \frac{k_0 e^{ik_0r}}{k_0-(-k_0)} = \frac{e^{ik_0r}}{2}
+\end{equation}
+
+já em $z_-$ temos:
+\begin{equation}
+	\text{Res}(z_-) = \lim_{\eta\rightarrow 0^-} \frac{k_- e^{iz_-r}}{z_--z_+} = \frac{-k_0 e^{-ik_0r}}{-k_0-k_0} = \frac{e^{-ik_0r}}{2}
+\end{equation}
+
+
+Por fim, podemos substituir os resultados para os resíduos na função de Green, lembrando de considerar a integral sobre $\omega$ e a constante $2\pi i$ enunciada anteriormente no teorema.
+
+\begin{equation}
+	\begin{split}
+		G_{\pm}(\mathbf{r},t) &= \int_{-\infty}^{+\infty} d\omega \, e^{-i\omega t} \int_{-R}^{R} \frac{ke^{ikr}}{(2\pi)^3 ir\left( -k^2 + (k_0+i\eta)^2\right)} \, dk \\
+		&= \int_{-\infty}^{+\infty} d\omega \frac{e^{-i\omega t}}{(2\pi)^3 ir} \int_{-\infty}^{\infty} \frac{ke^{ikr}}{\left( -k^2 + (k_0+i\eta)^2\right)} \, dk \\
+		&= \int_{-\infty}^{+\infty} d\omega \frac{e^{-i\omega t}}{(2\pi)^3 ir} \cdot 2\pi i \, \text{Res}(z_\pm) \\
+		&= \int_{-\infty}^{+\infty} d\omega \frac{e^{-i\omega t}}{(2\pi)^3 ir} \cdot 2\pi i \cdot \frac{e^{\pm ik_0 r}}{2} \\
+		&= \int_{-\infty}^{+\infty} d\omega \frac{e^{-i\omega t}}{(2\pi)^3 ir} \cdot \pi i \, e^{\pm i \frac{\omega c}{r}} \\
+		&= -\frac{1}{(2\pi)^3} \frac{\pi}{r} \int_{-\infty}^{+\infty} d\omega \, e^{-i\omega t} \\
+		&= -\frac{1}{(2\pi)^3} \frac{\pi}{r} \delta \left( t \mp \frac{r}{c} \right) \\
+	\end{split}
+\end{equation}
+
+Substituindo em \ref{eq2:psi} e retornando os tempos e posições $t-t'$ e $\textbf{r}-\textbf{r}'$ considerando que definimos essa possibilidade anteriormente, temos:
+
+\begin{equation}
+	\Psi (\textbf{r}, t)_{\pm} = 
+	-\int d^3 r' \int_{-\infty}^{+\infty} dt' \frac{1}{4\pi|\textbf{r}-\textbf{r}'|}\delta\left( t-t'\mp\frac{|\textbf{r}-\textbf{r}'|}{c}\right) f(\textbf{r}', t')
+\end{equation}
+
+Resolvendo para t,
+
+\begin{equation}
+	\Psi (\textbf{r}, t)_{\pm} = 
+	-\int d^3 r'\frac{f(\textbf{r}', t\mp\frac{|\textbf{r}-\textbf{r}'|}{c})}{4\pi|\textbf{r}-\textbf{r}'|}
+\end{equation}
+
+Nesse contexto, como temos duas soluções, utilizaremos a solução de tempo retardado, que é definido pelas consequências serem geradas após a interação. A outra escolha é chamado de tempo adiantado, mas pode não ser muito interessante no momento uma vez que estaríamos considerando, por exemplo, uma medida antes de realizar o experimento.
+
+\begin{equation}
+	\Psi (\textbf{r}, t)_{+} = 
+	-\int d^3 r'\frac{f(\textbf{r}', t -\frac{|\textbf{r}-\textbf{r}'|}{c})}{4\pi|\textbf{r}-\textbf{r}'|}
+\end{equation}
+
+Para finalizar, podemos substituir os resultados encontrados nos pares ordenados das fontes discutidos em sala de aula, desta forma encontrando uma solução para evolução temporal com relação as fontes
+
+\begin{equation*}
+	\phi \rightarrow f = -4\pi\rho(\textbf{r},t)
+\end{equation*}
+
+\begin{equation*}
+	\textbf{A} \rightarrow f = \frac{-4\pi}{c}\textbf{J}
+\end{equation*}
+
+logo,
+
+\begin{equation}
+	\phi (\textbf{r}, t) = 
+	\int d^3 r'\frac{\rho(\textbf{r}', t -\frac{|\textbf{r}-\textbf{r}'|}{c})}{|\textbf{r}-\textbf{r}'|}
+\end{equation}
+
+\begin{equation}
+	\textbf{A} (\textbf{r}, t) = 
+	\frac{1}{c}\int d^3 r'\frac{\textbf{J}(\textbf{r}', t -\frac{|\textbf{r}-\textbf{r}'|}{c})}{|\textbf{r}-\textbf{r}'|}
+\end{equation}
+
+
+
+

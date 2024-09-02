@@ -1,0 +1,60 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[portuguese]{babel}
+\usepackage[left=3cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{thmtools}
+\usepackage{xcolor}
+\usepackage{nameref}
+\usepackage{babel}
+\usepackage{hyperref}
+\usepackage{pxfonts}
+\usepackage{calrsfs}
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{tcolorbox}
+
+
+
+% Contador de parágrafos
+\newcounter{paragraphcounter}
+\setcounter{paragraphcounter}{0}
+
+% Comando para incrementar o contador de parágrafos
+\newcommand{\paragraphnum}{
+	\stepcounter{paragraphcounter}
+	\theparagraphcounter
+}
+
+\pagestyle{fancy}
+
+% Configuração da numeração das equações
+\makeatletter
+\renewcommand{\theequation}{\theparagraphcounter.\arabic{equation}}
+\@addtoreset{equation}{paragraphcounter}
+\makeatother
+
+\fancyhead[L]{Eduardo F. Rabelo - 11272697} % Cabeçalho esquerdo
+\fancyhead[C]{Problema \theparagraphcounter}     % Cabeçalho central: o capítulo
+\fancyhead[R]{SFI5708 - Eletromagnetismo}      % Cabeçalho direito: número da página
+
+%\color{blue}
+%\textbf{Problema \paragraphnum: 28/08 }
+%	%Insira o enunciado aqui:
+%
+%\color{black}
+%\bigskip\\
+%	%Resolução...	
+%
+
+
+\begin{document}
+
+	\input{./problema_1/prob_1.tex}
+	
+	\newpage
+
+\end{document}
