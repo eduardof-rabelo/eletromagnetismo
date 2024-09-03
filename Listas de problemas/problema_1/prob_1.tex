@@ -32,4 +32,90 @@
 \color{black}
 \bigskip
 
-Teste
+Vamos assumir a conservação de momento linear deduzida em classe e também na lista de exercícios 3:
+
+\begin{equation}
+	\frac{d}{dt}\left( \textbf{P}_m + \textbf{P}_c \right)_k = \sum_{m=1}^{3}\oint_{S(V)} T_{km} n_m
+	\label{eq1:conservaocaodemomento}
+\end{equation}
+
+Uma vez que temos o momento angular definido como o produto vetorial da posição com o momento das massas carregadas definido como
+
+\begin{equation}
+	\textbf{L} = \textbf{r} \times \textbf{P}_m
+\end{equation}
+
+Assim como no caso do momento linear queremos analisar suas características de conservação. Para ser conservada temos então que visualizar sua variação no tempo dada por
+
+
+\begin{equation}
+	\begin{split}
+		\frac{d}{dt}\textbf{L} &= \frac{d}{dt}\left( \textbf{r} \times \textbf{P}_m\right) \\
+		& = \frac{d}{dt}\textbf{r} \times \textbf{P}_m + \textbf{r} \times \frac{d}{dt} \textbf{P}_m \\
+		& = \textbf{r} \times \frac{d}{dt} \textbf{P}_m
+	\end{split}
+	\label{eq1:momentoangular}
+\end{equation}
+
+Podemos substituir \ref{eq1:conservaocaodemomento} em \ref{eq1:momentoangular} para trabalharmos explicitamente
+
+\begin{equation}
+	\begin{split}
+		\frac{d}{dt}\textbf{L} & = \textbf{r} \times \frac{d}{dt} \textbf{P}_m \\
+		& = \textbf{r} \times\left[ \oint_{S(V)} T_{km} n_m - \frac{d}{dt}\int_V d^3r'\frac{1}{4\pi c} \textbf{E} \times \textbf{B}\right]
+		\label{eq1:momentoexplicito}
+	\end{split}
+\end{equation}
+
+uma vez que
+
+\begin{equation}
+	\frac{d}{dt}\textbf{P}_c = \frac{d}{dt}\int_{V_{\infty}} d^3r'\frac{1}{4\pi c} \textbf{E} \times \textbf{B}
+\end{equation}
+
+Aplicando o teorema de Gauss na integral de linha em \ref{eq1:momentoexplicito} considerando as propriedades vetoriais apontadas no enunciado do problema chegamos em
+
+\begin{equation}
+	\begin{split}
+		\frac{d}{dt}\mathbf{L} & = \textbf{r} \times \left[ \int_{V_{\infty}} d^3r' \mathbf{\nabla} \cdot \overset{\leftrightarrow}{\textbf{T}} - \frac{d}{dt}\int_V d^3r'\frac{1}{4\pi c} \textbf{E} \times \textbf{B}\right] \\
+		& = \int_{V_{\infty}} d^3r' \quad \textbf{r} \times \left[ \mathbf{\nabla} \cdot \overset{\leftrightarrow}{\textbf{T}} - \frac{d}{dt}\frac{1}{4\pi c} \textbf{E} \times \textbf{B}\right] \\
+		& = \int_{V_{\infty}} d^3r'  \quad \left[-\mathbf{\nabla} \cdot \left( \mathbf{r} \times\overset{\leftrightarrow}{\textbf{T}} \right)-\frac{d}{dt} \left( \mathbf{r} \times \mathbf{g} \right) \right] \\
+		& = \int_{V_{\infty}} d^3r'  \quad \left[ -\mathbf{\nabla} \cdot \overset{\leftrightarrow}{\textbf{M}} - \frac{d}{dt} \left( \mathbf{r} \times \mathbf{g} \right) \\
+		& = \int_{V_{\infty}} d^3r'  \quad \left[ -\mathbf{\nabla} \cdot \overset{\leftrightarrow}{\textbf{M}} - \frac{d}{dt} \mathcal{L}_{field} \right]
+	\end{split}
+\end{equation}
+
+com 
+
+\begin{equation*}
+	\overset{\leftrightarrow}{\textbf{M}} =  \overset{\leftrightarrow}{\textbf{T}} \times \mathbf{r} \qquad \text{e} \qquad \mathbf{g} \equiv \frac{1}{4\pi c} \textbf{E} \times \textbf{B}.
+\end{equation*}
+
+Finalmente, podemos demonstrar as equações enunciadas anteriormente. Para isso, vamos propor uma densidade de momento angular no espaço $\mathcal{L}_{mech}$.
+
+\begin{equation}
+	\textbf{L} = \int_V d^3r' \mathcal{L}_{mech} \implies \frac{d}{dt}\mathbf{L} = \frac{d}{dt} \int_V d^3r' \mathcal{L}_{mech} 
+\end{equation}
+
+logo,
+
+\begin{equation}
+	\begin{split}
+		& \frac{d}{dt} \int_V d^3r' \mathcal{L}_{mech} = \int_{V_{\infty}} d^3r'  \quad \left[ -\mathbf{\nabla} \cdot \overset{\leftrightarrow}{\textbf{M}} - \frac{d}{dt} \mathcal{L}_{field} \right] \\
+		& \frac{d}{dt} \int_V d^3r' \left(\mathcal{L}_{mech} + \mathcal{L}_{field} \right) =- \int_{V_{\infty}} d^3r' \mathbf{\nabla} \cdot \overset{\leftrightarrow}{\textbf{M}} \\
+	\end{split}
+\end{equation}
+
+assim,
+
+\begin{equation}
+	\frac{d}{dt} \oint_V d^3r' \left(\mathcal{L}_{mech} + \mathcal{L}_{field} \right) + \int_{S(V)} da\quad \mathbf{\hat{n}} \cdot \overset{\leftrightarrow}{\textbf{M}} = 0
+\end{equation}
+
+\begin{equation}
+	\frac{\partial}{\partial t} \left(\mathcal{L}_{mech} + \mathcal{L}_{field} \right) + \mathbf{\nabla} \cdot \overset{\leftrightarrow}{\textbf{M}} = 0
+\end{equation}
+
+
+
+

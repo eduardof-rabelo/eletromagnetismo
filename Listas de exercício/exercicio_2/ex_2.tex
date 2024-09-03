@@ -289,12 +289,28 @@ logo,
 \begin{equation}
 	\phi (\textbf{r}, t) = 
 	\int d^3 r'\frac{\rho(\textbf{r}', t -\frac{|\textbf{r}-\textbf{r}'|}{c})}{|\textbf{r}-\textbf{r}'|}
+	\label{eq2:potencialescalar}
 \end{equation}
 
 \begin{equation}
 	\textbf{A} (\textbf{r}, t) = 
-	\frac{1}{c}\int d^3 r'\frac{\textbf{J}(\textbf{r}', t -\frac{|\textbf{r}-\textbf{r}'|}{c})}{|\textbf{r}-\textbf{r}'|}
+	\frac{1}{c}\int d^3 r'\frac{\textbf{J}(\textbf{r}', t -\frac{|\textbf{r}-\textbf{r}'|}{c})}{|\textbf{r}-\textbf{r}'|}	
 \end{equation}
+
+O vetor potencial satisfaz a equação de onda não homogênea
+
+\begin{equation}
+	\mathbf{\nabla} ^2 -\frac{1}{c^2}\frac{\partial^2\mathbf{A}}{\partial t^2} = -\frac{4\pi}{c}\textbf{J} + \frac{1}{c}\mathbf{\nabla}\frac{\partial \phi}{\partial t}
+\end{equation}
+
+por isso, desde que estejamos envolvendo um operador gradiente temos um termo irrotacional. Por isso, deve cancelar com outra componente correspondente da densidade de corrente satisfazendo então,
+
+\begin{equation}
+	\textbf{J} = \textbf{J}_l + \textbf{J}_t
+\end{equation}
+
+uma vez que $\nabla \times \textbf{J}_l = 0$ e $\nabla \cdot \textbf{J}_t = 0$
+
 
 
 
