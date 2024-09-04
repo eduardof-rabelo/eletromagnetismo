@@ -7,7 +7,92 @@
 }
 
 
-Queremos encontrar a solução para a equação de onda resultante das transformações por Gauge de Lorentz no qual queremos encontrar a solução particular que satisfaça
+\subsection*{Teorema de Helmholtz}
+
+Queremos inicialmente provar que 
+
+\begin{equation}
+	\textbf{J} = \textbf{J}_l + \textbf{J}_t
+\end{equation}
+
+e escrever $\textbf{J}_l$ e $\textbf{J}_t$ em suas formas explícitas sendo o primeiro irrotacional e o segundo transversal, ou seja  $\nabla \times \textbf{J}_l = 0$ e $\nabla \cdot \textbf{J}_t = 0$. Para fazer essa demonstração vamos nos apoiar na identidade
+
+\begin{equation}
+	\nabla \times \left( \nabla \times \textbf{J}\right) = \nabla \left( \nabla \cdot \textbf{J}\right) - \nabla^2\textbf{J}
+	\label{eq2:identidade}
+\end{equation}
+e na propriedade
+
+\begin{equation}
+	\nabla^2\frac{1}{|\textbf{x}-\textbf{x}'|} = \nabla^2\frac{1}{R}= -4\pi\delta^{(3)}(R), \qquad R \equiv |\textbf{x}-\textbf{x}'|
+\end{equation}
+
+Vamos começar escrevendo a densidade de corrente \textbf{J} como função de uma delta e aplicar a propriedade do laplaciano do vetor de separação
+
+\begin{equation}
+	\textbf{J}(\textbf{r}) = \int_V d^3r' \textbf{J}(\textbf{r}')\delta^{(3)}(R)
+\end{equation}
+
+logo,
+
+\begin{equation}
+	\textbf{J}(\textbf{r}) = \frac{-1}{4\pi} \nabla^2\int_V d^3r' \frac{\textbf{J}(\textbf{r}')}{R}
+\end{equation}
+
+substituindo a identidade \ref{eq2:identidade}
+
+\begin{equation}
+	\begin{split}
+		\textbf{J}(\textbf{r}) = & \frac{-1}{4\pi}\nabla^2\int_V d^3r'  \frac{\textbf{J}(\textbf{r}')}{R} \\ 
+		= & \frac{-1}{4\pi}\left( \nabla \nabla \cdot- \nabla \times \nabla \times \right)\int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{R} \\
+		= & \frac{-1}{4\pi} \left[\nabla \nabla \cdot \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{R} - \nabla \times \nabla \times \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{R} \right]
+	\end{split}
+\end{equation}
+
+Vamos agora manipular a primeira integral! Em seguida, utilizar a regra do produto das derivadas.
+
+\begin{equation*}
+	\begin{split}
+		& \frac{-1}{4\pi} \nabla \nabla \cdot \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{R} = \frac{-1}{4\pi} \nabla  \int_V d^3r' \textbf{J}(\textbf{r}')\nabla\cdot\frac{1}{R} \\
+		= & \frac{1}{4\pi} \nabla  \int_V d^3r' \nabla' \cdot \left(\frac{\textbf{J}(\textbf{r}')}{R}\right) -\frac{1}{4\pi} \nabla \int_V d^3r'\frac{\left( \nabla' \cdot \textbf{J}(\textbf{r'})\right)}{R} \\
+		= & \frac{1}{4\pi} \nabla  \oint_S(V) \left(\frac{\textbf{J}(\textbf{r}')}{R}\right) \cdot d\textbf{a}-\frac{1}{4\pi} \nabla \int_V d^3r'\frac{\left( \nabla' \cdot \textbf{J}(\textbf{r'})\right)}{R}
+		\label{eq2:decomposicao}
+	\end{split}
+\end{equation*}
+
+Uma vez que estamos fazendo a integração em todo o espaço, a integral de superfície tende a zero. Por isso, podemos reescrever como:
+
+\begin{equation*}
+	\frac{1}{4\pi} \nabla  \oint_S(V) \left(\frac{\textbf{J}(\textbf{r}')}{R}\right) \cdot d\textbf{a} \rightarrow 0
+\end{equation*}
+
+então, finalmente substituindo a integral manipulada em \ref{eq2:decomposicao} temos,
+
+\begin{equation}
+	\begin{split}
+		\textbf{J}(\textbf{r}) & = \frac{-1}{4\pi} \left[\nabla \nabla \cdot \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{R} - \nabla \times \nabla \times \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{R} \right]\\
+		& = -\frac{1}{4\pi} \nabla \int_V d^3r'\frac{\left( \nabla' \cdot \textbf{J}(\textbf{r'})\right)}{R} + \frac{1}{4\pi}\nabla \times \nabla \times \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{R}\\
+		& = -\frac{1}{4\pi} \nabla \int_V d^3r'\frac{\left( \nabla' \cdot \textbf{J}(\textbf{r'})\right)}{|\textbf{x}-\textbf{x}'|} + \frac{1}{4\pi}\nabla \times \nabla \times \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{|\textbf{x}-\textbf{x}'|}\\
+		& = \textbf{J}_l + \textbf{J}_t
+	\end{split}
+\end{equation}
+
+uma vez que,
+
+\begin{equation}
+	\textbf{J}_l = -\frac{1}{4\pi} \nabla \int_V d^3r'\frac{\left( \nabla' \cdot \textbf{J}(\textbf{r'})\right)}{|\textbf{x}-\textbf{x}'|}
+\end{equation}
+
+e
+
+\begin{equation}
+	\textbf{J}_t =  \frac{1}{4\pi}\nabla \times \nabla \times \int_V d^3r'\frac{\textbf{J}(\textbf{r}')}{|\textbf{x}-\textbf{x}'|}.
+\end{equation}
+
+
+\subsection*{Função de Green}
+
+Agora, queremos encontrar a solução para a equação de onda resultante das transformações por Gauge de Lorentz no qual queremos encontrar a solução particular que satisfaça
 
 \begin{equation}
 	\nabla ^2 \Psi (\textbf{r},t) -\frac{1}{c^2}\frac{\partial^2}{\partial t^2} \Psi = 
@@ -297,21 +382,24 @@ logo,
 	\frac{1}{c}\int d^3 r'\frac{\textbf{J}(\textbf{r}', t -\frac{|\textbf{r}-\textbf{r}'|}{c})}{|\textbf{r}-\textbf{r}'|}	
 \end{equation}
 
-O vetor potencial satisfaz a equação de onda não homogênea
-
-\begin{equation}
-	\mathbf{\nabla} ^2 -\frac{1}{c^2}\frac{\partial^2\mathbf{A}}{\partial t^2} = -\frac{4\pi}{c}\textbf{J} + \frac{1}{c}\mathbf{\nabla}\frac{\partial \phi}{\partial t}
-\end{equation}
-
-por isso, desde que estejamos envolvendo um operador gradiente temos um termo irrotacional. Por isso, deve cancelar com outra componente correspondente da densidade de corrente satisfazendo então,
-
-\begin{equation}
-	\textbf{J} = \textbf{J}_l + \textbf{J}_t
-\end{equation}
-
-uma vez que $\nabla \times \textbf{J}_l = 0$ e $\nabla \cdot \textbf{J}_t = 0$
 
 
 
-
-
+%O vetor potencial satisfaz a equação de onda não homogênea
+%
+%\begin{equation}
+%	\mathbf{\nabla} ^2 -\frac{1}{c^2}\frac{\partial^2\mathbf{A}}{\partial t^2} = -\frac{4\pi}{c}\textbf{J} + \frac{1}{c}\mathbf{\nabla}\frac{\partial \phi}{\partial t}
+%\end{equation}
+%
+%por isso, desde que estejamos envolvendo um operador gradiente temos um termo irrotacional. Por isso, deve cancelar com outra componente correspondente da densidade de corrente satisfazendo então,
+%
+%\begin{equation}
+%	\textbf{J} = \textbf{J}_l + \textbf{J}_t
+%\end{equation}
+%
+%uma vez que $\nabla \times \textbf{J}_l = 0$ e $\nabla \cdot \textbf{J}_t = 0$
+%
+%
+%
+%
+%
