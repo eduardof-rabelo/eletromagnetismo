@@ -72,7 +72,7 @@ podemos então substituir em \ref{eq3:variacaodemomento}.
 \begin{equation}
 	\begin{split}
 		\frac{d}{dt} \textbf{P}_m & = \int_V d^3 r \left( \rho \textbf{E} + \frac{1}{c} \textbf{J} \times \textbf{B} \right) \\
-		& = \int_V d^3 r \left( \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c}\frac{\partial}{\partial t}\textbf{E} \times \textbf{B} \right)
+		& = \int_V d^3 r \left( \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \left( \mathbf{\nabla} \times \textbf{B}\right) \times \textbf{B} - \frac{1}{4\pi c}\frac{\partial}{\partial t}\textbf{E} \times \textbf{B} \right)
 	\end{split}
 	\label{eq3:semfontes}
 \end{equation}
@@ -90,8 +90,81 @@ Substituindo em \ref{eq3:semfontes} e em seguida substituindo a derivada tempora
 
 \begin{equation}
 	\begin{split}
-		& \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c} \left(\frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) - \textbf{E} \times \frac{\partial}{\partial t}\textbf{B}\right) \right]\\
-		= & \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c} \left(\frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) + c\textbf{E} \times (\mathbf{\nabla} \times \textbf{B})\right)\right] \\
-		= & \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \mathbf{\nabla} \times \textbf{B} - \frac{1}{4\pi c} \frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) - \frac{1}{4\pi }\textbf{E} \times (\mathbf{\nabla} \times \textbf{B})\right]
+		& \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \left( \mathbf{\nabla} \times \textbf{B}\right) \times \textbf{B} - \frac{1}{4\pi c} \left(\frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) - \textbf{E} \times \frac{\partial}{\partial t}\textbf{B}\right) \right]\\
+		= & \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi} \left( \mathbf{\nabla} \times \textbf{B}\right) \times \textbf{B} - \frac{1}{4\pi c} \left(\frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) + c\textbf{E} \times (\mathbf{\nabla} \times \textbf{E})\right)\right] \\
+		= & \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} - \frac{1}{4\pi}  \textbf{B} \times \left( \mathbf{\nabla} \times \textbf{B}\right) - \frac{1}{4\pi c} \frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) - \frac{1}{4\pi }\textbf{E} \times (\mathbf{\nabla} \times \textbf{E})\right]
 	\end{split}
+\end{equation}
+
+uma vez que não existem monopolos magnéticos, isto é, $\nabla \cdot B = 0$ podemos acrescentar um termo para fins de simetria da equação. Por isso ficamos com,
+
+\begin{equation}
+	\begin{split}
+		& \frac{d}{dt} \textbf{P}_m + \int_V d^3 r \frac{1}{4\pi c} \frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) = \\
+		\qquad & =	\int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} + \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{B}\right) \textbf{B}- \frac{1}{4\pi}  \textbf{B} \times \left( \mathbf{\nabla} \times \textbf{B}\right) - \frac{1}{4\pi }\textbf{E} \times (\mathbf{\nabla} \times \textbf{E})\right]
+	\end{split}
+\end{equation}
+
+Os termos escalares na realidades são díades na forma $E_{i}\partial_{j}E_k$. Utilizando as convenções de Einstein, podemos olhar para os termos rotacionais acima onde temos,
+
+\begin{equation*}
+	\begin{split}
+	\left[ \textbf{E} \times \left( \nabla \times \textbf{E}\right) \right]_k & = \epsilon_{kmn}E_m\left( \nabla \times \textbf{E}\right)_n  \\ 
+	& = \epsilon_{kmn}E_m\epsilon_{njr}\partial_jE_r \\
+	& = \epsilon_{kmn}\epsilon_{njr}E_mE_r\\
+	& = \left(\delta_{kj}\delta_{mr}-\delta_{kr}\delta_{mj}\right) E_mE_r \\
+	& = \delta_{kj}E_m\partial_j E_m - E_j\partial_j E_k \\
+	& = \frac{1}{2}\delta_{kj}\textbf{E}^2
+	\end{split}
+\end{equation*}
+
+que possui uma estrutura muito similar à díade falada anteriormente. Para o campo elétrico, se considerarmos o lema de Gauss, temos:
+
+\begin{equation}
+	\begin{split}
+	& \int_V d^3 r \left[ \frac{1}{4\pi}\left( \mathbf{\nabla} \cdot \textbf{E}\right)  \textbf{E} - \frac{1}{4\pi }\textbf{E} \times (\mathbf{\nabla} \times \textbf{E}) \right] \\
+	= & \int_V d^3 r \frac{1}{4\pi } \left[\partial_k\textbf{E}E_k - \frac{1}{2}\delta_{kj}\textbf{E}^2 \right] \\
+	= & \frac{1}{4\pi }\oint_{S(V)} da\quad n_k\textbf{E}E_k -\frac{1}{4\pi } \oint_{S(V)} da\quad \frac{1}{2}n_k E_k^2\\
+	= & \frac{1}{4\pi }\oint_{S(V)} da\quad \left[ (\hat{n}\cdot \textbf{E})\textbf{E} - \frac{1}{2}\hat{n} (\textbf{E}\cdot\textbf{E})\right]
+	\end{split}
+\end{equation}
+
+analogamente para \textbf{B} temos,
+
+\begin{equation}
+	\frac{1}{4\pi }\oint_{S(V)} da\quad \left[ (\hat{n}\cdot \textbf{B})\textbf{B} - \frac{1}{2}\hat{n} (\textbf{B}\cdot\textbf{B})\right]
+\end{equation}
+
+finalmente, conseguimos provar as equações para a conservação de momento linear uma vez que consideramos a densidade de momento linear \textbf{g} e o tensor de estresse de Maxwell ($T_{km}$):
+
+\begin{equation}
+	\frac{d}{dt} \textbf{P}_m + \int_V d^3 r \frac{1}{4\pi c} \frac{\partial}{\partial t}\left( \textbf{E} \times \textbf{B}\right) = \frac{d}{dt}\left(\textbf{P}_m + \textbf{P}_c \right)
+\end{equation}
+ 
+ com 
+ 
+\begin{equation*}
+	\textbf{P}_c =  \int_V d^3 r \quad\textbf{g}, \qquad \textbf{g} \equiv \frac{1}{4\pi c}\left( \textbf{E} \times \textbf{B}\right)
+\end{equation*}
+
+portanto, 
+
+\begin{equation}
+	\begin{split}
+	\frac{d}{dt}\left(\textbf{P}_m + \textbf{P}_c \right) = & \frac{1}{4\pi}\oint_{S(V)} da	\left[ (\hat{n}\cdot \textbf{E})\textbf{E} - \frac{1}{2}\hat{n} (\textbf{E}\cdot\textbf{E}) + (\hat{n}\cdot \textbf{B})\textbf{B} - \frac{1}{2}\hat{n} (\textbf{B}\cdot\textbf{B})\right] \\
+	\frac{d}{dt}\left(\textbf{P}_m + \textbf{P}_c \right) = & \oint_{S(V)} da T_{km}n_m
+	\end{split}
+\end{equation}
+
+com
+
+\begin{equation}
+	T_{km} \equiv (\hat{n}\cdot \textbf{E})\textbf{E} - \frac{1}{2}\hat{n} (\textbf{E}\cdot\textbf{E}) +(\hat{n}\cdot \textbf{B})\textbf{B} - \frac{1}{2}\hat{n} (\textbf{B}\cdot\textbf{B}).
+\end{equation}
+
+Vale lembrar que, para que tenhamos conservação de momento dentro de um volume, isso acontecerá no caso da integral de superfície do tensor de estresse de maxwell nessa região V for nula, isto é,
+
+
+\begin{equation}
+	\oint_{S(V)} da \quad T_{km}n_m = 0
 \end{equation}
