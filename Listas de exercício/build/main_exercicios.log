@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.27)  5 SEP 2024 10:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.27)  17 SEP 2024 17:56
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -955,7 +955,7 @@ Package hyperref Info: Link coloring OFF on input line 45.
 \openout4 = `main_exercicios.out'.
 
 
-(./exercicio_4/ex_4.tex
+(./exercicio_5/ex_5.tex
 LaTeX Font Info:    Font shape `T1/pxr/b/n' in size <12> not available
 (Font)              Font shape `T1/pxr/bx/n' tried instead on input line 2.
 
@@ -963,37 +963,37 @@ Underfull \hbox (badness 10000) in paragraph at lines 2--4
 
  []
 
-LaTeX Font Info:    Trying to load font information for OT1+pxr on input line 7
+LaTeX Font Info:    Trying to load font information for OT1+pxr on input line 6
 .
 (/usr/share/texlive/texmf-dist/tex/latex/pxfonts/ot1pxr.fd
 File: ot1pxr.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Trying to load font information for U+pxsya on input line 7
+LaTeX Font Info:    Trying to load font information for U+pxsya on input line 6
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/pxfonts/upxsya.fd
 File: upxsya.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Trying to load font information for U+pxsyb on input line 7
+LaTeX Font Info:    Trying to load font information for U+pxsyb on input line 6
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/pxfonts/upxsyb.fd
 File: utxsyb.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Trying to load font information for U+pxmia on input line 7
+LaTeX Font Info:    Trying to load font information for U+pxmia on input line 6
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/pxfonts/upxmia.fd
 File: upxmia.fd 2000/12/14 v1.0
 )
-LaTeX Font Info:    Trying to load font information for U+pxsyc on input line 7
+LaTeX Font Info:    Trying to load font information for U+pxsyc on input line 6
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/pxfonts/upxsyc.fd
 File: upxsyc.fd 2000/12/14 v1.0
 )
 LaTeX Font Info:    Trying to load font information for OMS+rsfs on input line 
-7.
+6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/calrsfs/OMSrsfs.fd)
 
@@ -1007,18 +1007,7 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texlive/texmf-
 dist/fonts/enc/dvips/base/8r.enc}
 
-]
-LaTeX Font Info:    Calculating math sizes for size <7.86436> on input line 78.
-
-
-
-LaTeX Font Warning: Font shape `OMS/rsfs/m/n' in size <5.50502> not available
-(Font)              size <6> substituted on input line 78.
-
-
-LaTeX Font Warning: Font shape `OMS/rsfs/m/n' in size <3.93217> not available
-(Font)              size <5> substituted on input line 78.
-
+])
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 14.49998pt, for example:
@@ -1027,36 +1016,22 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 (fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
 
-[2])
-
-Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 14.49998pt, for example:
-(fancyhdr)                \setlength{\headheight}{14.49998pt}.
-(fancyhdr)                You might also make \topmargin smaller to compensate:
-
-(fancyhdr)                \addtolength{\topmargin}{-2.49998pt}.
-
-[3] (./build//main_exercicios.aux)
+[2] (./build//main_exercicios.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
  ***********
-
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 3.03392pt have occurred.
-
 Package rerunfilecheck Info: File `main_exercicios.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 26653 strings out of 474222
- 508736 string characters out of 5748733
- 1956975 words of memory out of 5000000
- 48408 multiletter control sequences out of 15000+600000
- 610400 words of font info for 185 fonts, out of 8000000 for 9000
+ 26430 strings out of 474222
+ 504473 string characters out of 5748733
+ 1953975 words of memory out of 5000000
+ 48193 multiletter control sequences out of 15000+600000
+ 576256 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,20n,87p,552b,698s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 83i,18n,87p,552b,591s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/pxfonts/pxex.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/pxfonts/pxsy.pfb></usr/share/texlive/te
 xmf-dist/fonts/type1/public/pxfonts/rpxb.pfb></usr/share/texlive/texmf-dist/fon
@@ -1064,10 +1039,10 @@ ts/type1/public/pxfonts/rpxmi.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/pxfonts/rpxr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/u
 plb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></
 usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on ./build//main_exercicios.pdf (3 pages, 73231 bytes).
+Output written on ./build//main_exercicios.pdf (2 pages, 61981 bytes).
 PDF statistics:
- 88 PDF objects out of 1000 (max. 8388607)
- 66 compressed objects within 1 object stream
- 20 named destinations out of 1000 (max. 500000)
+ 78 PDF objects out of 1000 (max. 8388607)
+ 57 compressed objects within 1 object stream
+ 16 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

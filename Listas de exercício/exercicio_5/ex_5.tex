@@ -1,0 +1,89 @@
+\textcolor{blue}{\textbf{Exercício \paragraphnum: 04/09}
+	Calcule, detalhadamente, a partir dos potenciais de Liénard \& Wiechert, o campo elétrico de uma partícula de carga q e massa m percorrendo uma trajetória arbitrária.}
+\bigskip\\
+
+
+Queremos demonstrar o campo $\vec{E}$:
+
+\begin{equation}
+	\vec{E}(\vec{r}, t) = q\left[\frac{(\hat{R}-\vec{\beta})(1-\beta^2)}{R^2(1-\hat{R}\cdot\mathbf{\beta})^3} + \frac{\hat{R}\times\ \left[ (\hat{R}-\vec{\beta})\times \vec{a} \right]}{Rc^2(1-\hat{R}\cdot\vec{\beta})^3}\right]
+\end{equation}
+
+ partindo de,
+ 
+ \begin{equation}
+ 	\phi(\vec{r},t)=\frac{q}{R-\vec{R}\cdot{\beta}}
+ \end{equation}
+ 
+ e
+ 
+ \begin{equation}
+ 	\vec{A}(\vec{r},t) = \frac{q\vec{\beta}}{R-\vec{R}\cdot\vec{\beta}}
+ \end{equation}
+ 
+ uma vez que,
+ 
+ \begin{equation}
+ 	\vec{E}(\vec{r},t) = -\vec{\nabla}\phi-\frac{1}{c}\frac{\partial}{\partial t}\vec{A}.
+ \end{equation}
+ 
+Vamos calcular primeiro $-\vec{\nabla}\phi$:
+ 
+ \begin{equation}
+ 	\begin{split}
+ 	-\vec{\nabla}\phi &= \vec{\nabla}\left[\frac{q}{R-\vec{R}\cdot\vec{\beta}}\right] = -q \vec{\nabla}\left[(R-\vec{R}\cdot{\beta})^{-1}\right] \\ 
+ 	& = q\left[(R-\vec{R}\cdot\vec{\beta})^{-2}) \vec{\nabla}(R-\vec{R}\cdot\vec{\beta}) \right]\\
+ 	& = \frac{q}{(R-\vec{R}\cdot{\beta})^2}(\partial_j R -\vec{\beta}\cdot(\partial_j \vec{R}) - \vec{R}\cdot({\partial_j \vec{\beta}}))
+ 	\end{split}
+ 	\label{eq5:nablaphi}
+ \end{equation}
+ 
+Vamos agora calcular as derivadas diretamente:
+
+\begin{equation}
+	\begin{split}
+		\partial_j R = \frac{1}{2R}\partial_j R^2 = \frac{1}{2R}\partial_j(\vec{R}\cdot\vec{R}) = \hat{R} \cdot \partial_j \vec{R} 
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+		\partial_j \vec{R} = \partial_j (\vec{r}-\vec{r_0}(t_R)) = \hat{e}_j - \frac{dr_0(t_R)}{dt_R}\partial_j t_R = \hat{e}_j - \vec{v}\partial_j t_R
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+		\partial_j t_R &= \partial_j \left(t-\frac{R}{c}\right) = \partial_j t - \frac{\partial_j R}{c} =  -\frac{\partial_j R}{c} = \frac{\hat{R} \cdot \partial \vec{R}}{c} \\ & = \frac{\hat{R}\cdot\hat{e}_j - \hat{R}\cdot\vec{v}\partial_j t_R}{c} = \frac{-\hat{R}\cdot \hat{e}_j}{c} + \vec{\beta}\cdot\hat{R}\partial_j t_R
+	\end{split}
+\end{equation}
+
+\begin{equation}
+	\begin{split}
+		\partial_j t_R-\vec{\beta}\cdot\hat{R}\partial_j t_R = \partial_j t_R(1-\vec{\beta}\cdot\hat{R}) = \frac{-\hat{R}\cdot \hat{e}_j}{c} \implies \partial_j t_R = \frac{-\hat{R}\cdot \hat{e}_j}{c(1-\vec{\beta}\cdot\hat{R})}
+	\end{split}
+\end{equation}
+
+
+Finalmente,
+
+\begin{equation}
+	\partial_j t_R = \frac{\hat{R}\cdot \hat{e}_j}{c(1-\vec{\beta}\cdot\hat{R})}
+\end{equation}
+
+\begin{equation}
+	\partial_j \vec{R} = \hat{e}_j + \vec{\beta}\frac{\hat{R}\cdot \hat{e}_j}{c(1-\vec{\beta}\cdot\hat{R})}
+\end{equation}
+
+\begin{equation}
+	\partial_j R = \hat{R}\cdot\hat{e}_j + \frac{(\hat{R}\cdot\vec{\beta})(\hat{R}\cdot \hat{e}_j)}{c(1-\vec{\beta}\cdot\hat{R})}
+\end{equation}
+
+substituido em \ref{eq5:nablaphi} temos,
+
+\begin{equation}
+	\begin{split}
+	-\vec{\nabla}\phi & =\frac{q}{(R-\vec{R}\cdot{\beta})^2}(\partial_j R -\vec{\beta}\cdot(\partial_j \vec{R}) - \vec{R}\cdot({\partial_j \vec{\beta}})) \\
+	& = \frac{q}{(R-\vec{R}\cdot{\beta})^2}\left[\hat{R}\cdot\hat{e}_j + \frac{(\hat{R}\cdot\vec{\beta})(\hat{R}\cdot \hat{e}_j)}{c(1-\vec{\beta}\cdot\hat{R})} - \vec{\beta}\cdot\hat{e}_j - \frac{(\vec{\beta}\cdot\vec{\beta})(\hat{R}\cdot \hat{e}_j)}{c(1-\vec{\beta}\cdot\hat{R})} + \frac{\vec{a}}{c^2}\frac{(\hat{R}\cdot \hat{e}_j)}{(1-\vec{\beta}\cdot\hat{R})}\right]
+	\end{split}
+\end{equation}
